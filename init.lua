@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -609,6 +609,7 @@ require('lazy').setup({
         'stylua', -- Used to format Lua code
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+      local nvim_lsp = require 'lspconfig'
 
       require('mason-lspconfig').setup {
         handlers = {
@@ -619,6 +620,16 @@ require('lazy').setup({
             -- certain features of an LSP (for example, turning off formatting for tsserver)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
+          end,
+          ['omnisharp'] = function()
+            nvim_lsp.omnisharp.setup {
+              root_dir = nvim_lsp.util.root_pattern('*.sln', '*.csproj', '.git'),
+            }
+          end,
+          ['csharp_ls'] = function()
+            nvim_lsp.csharp_ls.setup {
+              root_dir = nvim_lsp.util.root_pattern('*.sln', '*.csproj', '.git'),
+            }
           end,
         },
       }
