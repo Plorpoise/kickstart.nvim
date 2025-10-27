@@ -102,7 +102,7 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -225,6 +225,8 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+  -- Diable matchparen, we are using a different one later
+  performance = { rtp = { disabled_plugins = { 'matchparen' } } },
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
@@ -568,6 +570,7 @@ require('lazy').setup({
         clangd = {},
         -- gopls = {},
         pyright = {},
+
         rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -631,11 +634,25 @@ require('lazy').setup({
               root_dir = nvim_lsp.util.root_pattern('*.sln', '*.csproj', '.git'),
             }
           end,
+          ['pyright'] = function()
+            nvim_lsp.pyright.setup {
+              root_dir = nvim_lsp.util.root_pattern('*.py', '.git'),
+            }
+          end,
         },
       }
     end,
   },
-
+  -- Flutter lsp
+  {
+    'nvim-flutter/flutter-tools.nvim',
+    lazy = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+    config = true,
+  },
   { -- Autoformat
     'stevearc/conform.nvim',
     lazy = false,
