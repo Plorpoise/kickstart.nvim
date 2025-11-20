@@ -863,7 +863,7 @@ require('lazy').setup({
         -- <c-k>: Toggle signature help
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        preset = 'default',
+        preset = 'enter',
 
         -- Scroll the documentation window [b]ack / [f]orward
         --['<C-y>'] = cmp.mapping.scroll_docs(-4),
