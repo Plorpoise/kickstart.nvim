@@ -865,14 +865,14 @@ require('lazy').setup({
         -- See :h blink-cmp-config-keymap for defining your own keymap
         preset = 'default',
 
-          -- Scroll the documentation window [b]ack / [f]orward
-          ['<C-y>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-b>'] = cmp.mapping.scroll_docs(4),
+        -- Scroll the documentation window [b]ack / [f]orward
+        --['<C-y>'] = cmp.mapping.scroll_docs(-4),
+        --['<C-b>'] = cmp.mapping.scroll_docs(4),
 
-          -- Accept ([y]es) the completion.
-          --  This will auto-import if your LSP supports it.
-          --  This will expand snippets if the LSP sent a snippet.
-          ['<CR>'] = cmp.mapping.confirm { select = true },
+        -- Accept ([y]es) the completion.
+        --  This will auto-import if your LSP supports it.
+        --  This will expand snippets if the LSP sent a snippet.
+        --['<CR>'] = cmp.mapping.confirm { select = true },
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
