@@ -714,6 +714,7 @@ require('lazy').setup({
             }
           end,
         },
+      }
     end,
   },
   -- Flutter lsp
