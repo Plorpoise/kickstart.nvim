@@ -126,6 +126,9 @@ end)
 -- Enable break indent
 vim.o.breakindent = true
 
+-- Window borders
+vim.o.winborder = 'rounded'
+
 -- Save undo history
 vim.o.undofile = true
 
