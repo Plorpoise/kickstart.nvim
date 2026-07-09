@@ -104,6 +104,13 @@ vim.o.number = true
 --  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
+-- Conceal level for making things look prettier or something
+-- 0 = none
+-- 1 = Show marker where concealment is happening
+-- 2 = No marker, but reveal hidden things on current line
+-- 3 = Never reveal
+vim.opt.conceallevel = 2
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
 
@@ -931,6 +938,7 @@ require('lazy').setup({
           inside_next = 'ii',
         },
         n_lines = 500,
+        search_method = 'cover_or_nearest',
       }
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
