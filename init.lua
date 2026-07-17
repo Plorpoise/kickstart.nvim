@@ -405,15 +405,6 @@ do
     },
   }
   vim.pack.add { gh "catppuccin/nvim" }
-  require('catpuccin').setup {
-    name = "catppuccin",
-    priority = 1000,
-    config = function ()
-      require('catppuccin')
-      vim.cmd.colorscheme 'catppuccin-mocha'
-      
-    end
-  }
 
   -- Load the colorscheme here.
   -- Like many other themes, this one has different styles, and you could load
@@ -992,7 +983,7 @@ do
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.gitsigns' -- adds gitsigns recommend keymaps
 
   -- NOTE: You can add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --
