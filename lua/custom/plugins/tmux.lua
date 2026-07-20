@@ -1,7 +1,5 @@
-return {
-  'aserowy/tmux.nvim',
-  config = function()
-    return require('tmux').setup {
+vim.pack.add {  'aserowy/tmux.nvim'}
+require('tmux').setup{
       copy_sync = {
         -- enables copy sync. by default, all registers are synchronized.
         -- to control which registers are synced, see the `sync_*` options.
@@ -42,6 +40,4 @@ return {
         -- syncs the unnamed register with the first buffer entry from tmux.
         sync_unnamed = true,
       },
-    }
-  end,
 }
